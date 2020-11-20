@@ -2,7 +2,7 @@ import { useContext } from "react"
 import AuthContext from "../../../contexts/authContext"
 
 import { AiOutlineUser } from "react-icons/ai"
-import { BarLoader, SyncLoader } from "react-spinners"
+import { BarLoader } from "react-spinners"
 import LoginButton from "./loginButton"
 import LogoutButton from "./logoutButton"
 
