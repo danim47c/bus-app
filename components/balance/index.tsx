@@ -29,26 +29,27 @@ const Balance = () => {
 
   return (
     <Card className="w-full" header={<Code code={code} setCode={setCode} />}>
-      <div className="flex flex-col justify-center items-center pb-3">
+      <div className="flex flex-col justify-center items-center">
         {balance === null ? (
           <div className="py-4 text-xl">Invalid code</div>
         ) : (
+          code &&
           !balance && (
-            <div className="m-2 my-6">
+            <div className="mt-6 mb-10">
               <PropagateLoader color="#B58EC7" />
             </div>
           )
         )}
 
         {balance && (
-          <div className="w-full flex justify-between mb-3">
+          <div className="w-full flex justify-between">
             <RefreshButton onClick={refreshBalance} />
 
             <div className="w-full self-center flex justify-center items-center text-center text-xl">
               {`${balance.balance}€`}
             </div>
 
-            <HistoryButton onClick={toggleHistory} />
+            <HistoryButton history={history} onClick={toggleHistory} />
           </div>
         )}
 

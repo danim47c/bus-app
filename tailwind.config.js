@@ -6,14 +6,14 @@ module.exports = {
       colors: {
         custom: {
           primary: "#B58EC7",
-          secondary: "#D6D6D6",
+          secondary: "#C6ABD3",
         },
       },
       maxHeight: {
         mobile: "778px",
       },
       maxWidth: {
-        mobile: "414px",
+        mobile: "402px",
       },
     },
   },

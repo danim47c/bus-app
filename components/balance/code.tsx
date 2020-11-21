@@ -34,10 +34,16 @@ const Code = ({
   }
 
   return (
-    <div className="w-full flex justify-between items-center px-1.5 py-1 rounded-t-md bg-custom-primary">
+    <div
+      className={`w-full flex justify-between items-center px-1.5 py-1 rounded-t-md ${
+        !savedCode && "rounded-b-md"
+      } bg-custom-primary`}
+    >
       <NumberFormat
         className={`w-full mr-3 rounded-md ${
-          editing ? "text-custom-primary" : "text-white"
+          editing
+            ? "bg-white text-custom-primary"
+            : "bg-custom-secondary text-white"
         } text-xl text-center`}
         name="code"
         format="##########"

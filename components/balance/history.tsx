@@ -1,16 +1,22 @@
 import { ReactEventHandler } from "react"
-import { AiOutlineHistory } from "react-icons/ai"
+import { AiOutlineClose, AiOutlineHistory } from "react-icons/ai"
 import { GetBalanceType } from "../../auvasa/getBalance"
 import Button from "../base/button"
 
-export const HistoryButton = ({ onClick }: { onClick: ReactEventHandler }) => (
+export const HistoryButton = ({
+  history,
+  onClick,
+}: {
+  history: boolean
+  onClick: ReactEventHandler
+}) => (
   <Button onClick={onClick} icon disableRounded className="rounded-bl-lg p-2">
-    <AiOutlineHistory size={20} />
+    {!history ? <AiOutlineHistory size={20} /> : <AiOutlineClose size={20} />}
   </Button>
 )
 
 const History = ({ balance }: { balance: GetBalanceType }) => (
-  <div className="w-full px-3">
+  <div className="w-full px-3 my-3">
     <table className="w-full rounded-md">
       <thead>
         <tr>
