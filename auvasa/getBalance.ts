@@ -1,4 +1,5 @@
 import Axios from "axios"
+import { parse } from "postcss"
 import { useEffect, useState } from "react"
 import { ElementCompact, xml2js } from "xml-js"
 import { baseUrl } from "."
@@ -9,6 +10,7 @@ export interface Trip {
   date: string
   amount: number
   remain: number
+  type: "+" | "-"
 }
 
 export interface Balance {
@@ -25,6 +27,7 @@ export const mapDataToTrip = (data: any): Trip => ({
   date: data.fecha._cdata,
   amount: parseNumber(data.importe._cdata),
   remain: parseNumber(data.saldo._cdata),
+  type: parseNumber(data.tipoop._cdata) === 9 ? "+" : "-",
 })
 
 export const mapDataToBalance = ({

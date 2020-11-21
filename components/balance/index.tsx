@@ -28,8 +28,11 @@ const Balance = () => {
   }, [code])
 
   return (
-    <Card className="w-full" header={<Code code={code} setCode={setCode} />}>
-      <div className="flex flex-col justify-center items-center">
+    <Card
+      className="w-full rounded-b-lg"
+      header={<Code code={code} setCode={setCode} />}
+    >
+      <div className="flex flex-col justify-center items-center rounded-b-lg">
         {balance === null ? (
           <div className="py-4 text-xl">Invalid code</div>
         ) : (
@@ -42,14 +45,25 @@ const Balance = () => {
         )}
 
         {balance && (
-          <div className="w-full flex justify-between">
-            <RefreshButton onClick={refreshBalance} />
+          <div className="w-full flex justify-between items-start rounded-b-lg bg-custom-primary">
+            <div className="rounded-bl-lg bg-white">
+              <RefreshButton history={history} onClick={refreshBalance} />
+            </div>
 
-            <div className="w-full self-center flex justify-center items-center text-center text-xl">
+            <div
+              className="
+              w-full h-full
+              self-end flex justify-center items-center
+              rounded-t-md bg-white
+              text-center text-xl
+            "
+            >
               {`${balance.balance}€`}
             </div>
 
-            <HistoryButton history={history} onClick={toggleHistory} />
+            <div className="rounded-br-lg bg-white">
+              <HistoryButton history={history} onClick={toggleHistory} />
+            </div>
           </div>
         )}
 
