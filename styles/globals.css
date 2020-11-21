@@ -25,7 +25,8 @@ a {
 
 @tailwind components;
 
-button:focus {
+button:focus,
+input:focus {
   outline: none;
 }
 

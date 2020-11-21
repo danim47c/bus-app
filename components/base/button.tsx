@@ -1,12 +1,16 @@
-import { ReactChild, ReactNode } from "react"
+import { ReactChild, ReactEventHandler, ReactNode } from "react"
 
-interface ButtonProps {
+export interface ButtonProps {
   children: ReactNode
   color?: string
   textColor?: string
   icon?: boolean
+  disabled?: boolean
+  disableShadow?: boolean
+  disableRounded?: boolean
   startIcon?: ReactChild
-  onClick: () => void
+  onClick: ReactEventHandler
+  className?: string
 }
 
 const Button = ({
@@ -14,13 +18,21 @@ const Button = ({
   color = "custom-primary",
   textColor = "white",
   icon = false,
+  disabled = false,
+  disableShadow = false,
+  disableRounded = false,
   startIcon,
   onClick,
+  className = "",
 }: ButtonProps) => (
   <button
-    className={`transition-shadow duration-200  ${
-      icon ? "rounded-full p-1" : "rounded-md px-3 py-1"
-    } shadow-sm hover:shadow-lg bg-${color} text-${textColor}`}
+    className={`
+    transition-shadow duration-200
+    ${!disableRounded && (icon ? "rounded-full p-1" : "rounded-md px-3 py-1")}
+    ${!disableShadow && "shadow-sm hover:shadow-lg"}
+    bg-${color} text-${textColor}
+    ${className}`}
+    disabled={disabled}
     onClick={onClick}
   >
     {startIcon && <div className="mr-4">{startIcon}</div>}

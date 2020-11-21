@@ -1,5 +1,11 @@
+import Balance from "../components/balance"
+
 const Home = () => {
-  return <></>
+  return (
+    <>
+      <Balance />
+    </>
+  )
 }
 
 export default Home

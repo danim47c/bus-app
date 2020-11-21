@@ -15,7 +15,7 @@ const Layout = ({ children }: { children: ReactNode }) => (
       >
         <Header />
 
-        {children}
+        <div className="w-full flex flex-col items-center px-3">{children}</div>
       </div>
     </div>
   </AuthContextProvider>
